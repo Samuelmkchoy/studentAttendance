@@ -5,14 +5,23 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout the code from the remote repository
-                git 'https://github.com/Samuelmkchoy/studentAttendance'
+                git 'https://github.com/your-username/your-repository.git'
             }
         }
 
         stage('Build') {
             steps {
-                // Assuming it's a Maven project, build using Maven
-                sh 'mvn clean install'
+                script {
+                    echo 'Hello from Jenkins!'
+                    sh 'java -version'
+                }
+            }
+        }
+
+        stage('Test') {
+            steps {
+                // Run JUnit tests
+                sh 'mvn test'
             }
         }
     }
