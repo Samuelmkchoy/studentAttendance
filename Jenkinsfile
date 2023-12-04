@@ -2,10 +2,18 @@ pipeline {
     agent any
 
     stages {
+        stage('Print Environment Variables') {
+            steps {
+                script {
+                    sh 'printenv'
+                }
+            }
+        }
+
         stage('Test') {
             steps {
                 script {
-                    sh 'mvn test'
+                    sh '/path/to/maven test'
                 }
             }
         }
