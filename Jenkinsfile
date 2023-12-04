@@ -10,11 +10,13 @@ pipeline {
 
         stage('Build and Test') {
             steps {
-                script {
-                    def mvnHome = tool 'MavenInstallationName' // Replace with your configured Maven installation name
-                    def mavenCMD = "${mvnHome}/bin/mvn"
+                dir('path/to/project') {
+                    script {
+                        def mvnHome = tool 'MavenInstallationName' // Replace with your configured Maven installation name
+                        def mavenCMD = "${mvnHome}/bin/mvn"
 
-                    sh "${mavenCMD} clean test"
+                        sh "${mavenCMD} clean test"
+                    }
                 }
             }
 
@@ -35,3 +37,4 @@ pipeline {
         }
     }
 }
+
