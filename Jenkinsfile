@@ -4,6 +4,7 @@ pipeline {
     tools {
             maven 'Maven' // Use the Maven installation named 'Maven'
         }
+
     stages {
         stage('Checkout') {
             steps {
