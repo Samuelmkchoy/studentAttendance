@@ -2,29 +2,25 @@ pipeline {
     agent any
 
     tools {
-            maven 'Maven' // Use the Maven installation named 'Maven'
-        }
+        maven 'Maven' // Use the Maven installation named 'Maven'
+    }
 
-    stages {
-        stage('Checkout') {
-            steps {
-                // Checkout the code from the remote repository
-                git 'https://github.com/Samuelmkchoy/studentAttendance'
-            }
-        }
 
         stage('Build') {
             steps {
                 script {
-                    echo 'Hello from Jenkins!'
+                    // Use the 'mvn' command directly
+                    sh 'mvn clean install'
                 }
             }
         }
 
         stage('Test') {
             steps {
-                // Run JUnit tests
-                sh 'mvn test'
+                script {
+                    // Use the 'mvn' command directly
+                    sh 'mvn test'
+                }
             }
         }
     }
