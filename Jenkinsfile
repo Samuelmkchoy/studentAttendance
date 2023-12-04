@@ -4,16 +4,16 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    // Use the correct path to mvn based on your Jenkins configuration
-                    sh 'path/to/mvn clean install'
+                    // Replace '/absolute/path/to/mvn' with the actual path
+                    sh '/absolute/path/to/mvn clean install'
                 }
             }
         }
         stage('Test') {
             steps {
                 script {
-                    // Use the correct path to mvn based on your Jenkins configuration
-                    sh 'path/to/mvn test'
+                    // Replace '/absolute/path/to/mvn' with the actual path
+                    sh '/absolute/path/to/mvn test'
                 }
             }
         }
