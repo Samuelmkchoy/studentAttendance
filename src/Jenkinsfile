@@ -1,21 +1,20 @@
 pipeline {
     agent any
+
     stages {
-        stage('Build') {
+        stage('Hello') {
             steps {
-                script {
-                    // Replace '/absolute/path/to/mvn' with the actual path
-                    sh '/absolute/path/to/mvn clean install'
-                }
+                echo 'Hello, World!'
             }
         }
-        stage('Test') {
-            steps {
-                script {
-                    // Replace '/absolute/path/to/mvn' with the actual path
-                    sh '/absolute/path/to/mvn test'
-                }
-            }
+    }
+
+    post {
+        success {
+            echo 'Pipeline succeeded! Yay!'
+        }
+        failure {
+            echo 'Pipeline failed! Oh no!'
         }
     }
 }
