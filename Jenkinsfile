@@ -1,9 +1,9 @@
 pipeline {
     agent any
 
-    tools {
-        maven 'Maven' // Use the Maven installation named 'Maven'
-    }
+        tools {
+            maven 'Maven' // Use the Maven installation named 'Maven'
+        }
 
 
         stage('Build') {
@@ -24,4 +24,3 @@ pipeline {
             }
         }
     }
-}
