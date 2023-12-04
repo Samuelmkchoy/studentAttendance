@@ -1,24 +1,21 @@
 pipeline {
     agent any
-
     stages {
         stage('Build') {
             steps {
                 script {
-                    // Change to the project directory
-                    dir('/Users/mingkitchoy/.jenkins/workspace/studentAttendance') {
-                        // Run tests
-                        sh 'mvn test'
-                    }
+                    // Use the correct path to mvn based on your Jenkins configuration
+                    sh 'path/to/mvn clean install'
                 }
             }
         }
-    }
-
-    post {
-        always {
-            // Archive test results
-            junit '**/target/surefire-reports/*.xml'
+        stage('Test') {
+            steps {
+                script {
+                    // Use the correct path to mvn based on your Jenkins configuration
+                    sh 'path/to/mvn test'
+                }
+            }
         }
     }
 }
