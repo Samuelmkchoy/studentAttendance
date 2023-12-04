@@ -1,15 +1,15 @@
 pipeline {
     agent any
 
-        tools {
-            maven 'Maven' // Use the Maven installation named 'Maven'
-        }
+    tools {
+        maven 'Maven'
+    }
 
+    stages {
 
         stage('Build') {
             steps {
                 script {
-                    // Use the 'mvn' command directly
                     sh 'mvn clean install'
                 }
             }
@@ -18,9 +18,9 @@ pipeline {
         stage('Test') {
             steps {
                 script {
-                    // Use the 'mvn' command directly
                     sh 'mvn test'
                 }
             }
         }
     }
+}
