@@ -1,15 +1,15 @@
 pipeline {
     agent any
-    tools {
-        maven 'maven'
-    }
 
     stages {
         stage('Build') {
             steps {
                 script {
-                    // Run tests
-                    sh 'mvn test'
+                    // Change to the project directory
+                    dir('/Users/mingkitchoy/.jenkins/workspace/studentAttendance') {
+                        // Run tests
+                        sh 'mvn test'
+                    }
                 }
             }
         }
