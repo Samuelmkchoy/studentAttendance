@@ -1,13 +1,22 @@
 pipeline {
     agent any
 
+    tools {
+        gradle 'Gradle' // Use the Gradle installation named 'Gradle'
+    }
+
     stages {
-        stage('Setup') {
+        stage('Checkout') {
             steps {
-                // Use the 'tool' step to download and configure Maven
+                git 'https://github.com/your-username/your-repository.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
                 script {
-                    def mvnHome = tool 'Maven'
-                    env.PATH = "${mvnHome}/bin:${env.PATH}"
+                    // Run Gradle build
+                    sh 'gradle clean build'
                 }
             }
         }
@@ -15,8 +24,8 @@ pipeline {
         stage('Test') {
             steps {
                 script {
-                    // Now, 'mvn' should be available in the PATH
-                    sh 'mvn test'
+                    // Run Gradle tests
+                    sh 'gradle test'
                 }
             }
         }
